@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:umass_geoguessr_app/main.dart';
-import 'package:umass_geoguessr_app/homePage.dart';
+import 'package:umass_geoguessr_app/home_page.dart';
 
 class GameOverPage extends StatefulWidget {
   final int score;

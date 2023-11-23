@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:math';
-import 'package:umass_geoguessr_app/gameOverPage.dart';
+import 'package:umass_geoguessr_app/game_over_page.dart';
 
 class GamePage extends StatefulWidget {
   const GamePage({super.key});
@@ -57,6 +57,8 @@ class _GamePageState extends State<GamePage> {
     setState(() {
       _gameOver = true;
     });
+    roundTimer.cancel();
+    gameTimer.cancel();
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -82,9 +84,9 @@ class _GamePageState extends State<GamePage> {
   // late means not initialized until first use
   late Timer gameTimer;
   late Timer roundTimer;
-  final int _totalRoundSeconds = 30;
+  final int _totalRoundSeconds = 60;
   int _gameSeconds = 210;
-  int _roundSeconds = 20;
+  int _roundSeconds = 60;
 
   Timer _startRoundTimer() {
     const oneSec = Duration(seconds: 1);
